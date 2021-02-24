@@ -56,14 +56,14 @@ double prim_algo()
         }
     }
    
-    double sum = 0.00;
+    double sump = 0.00;
     for (int i = 1; i < V; i++)
     {
-        sum += graph[i][prev[i]];
+        sump += graph[i][prev[i]];
     }
 
-    return sum;
-    //printf("%lf\n", sum);
+    return sump;
+    //printf("%lf\n", sump);
 }
 
 double prim_algo_dim_0()
@@ -165,8 +165,8 @@ int main (int argc, char *argv[])
         }
         printf("%lf\n", sum/10);
     }
-    else
-    {
+    for (int a = 0; a < trials; a++)
+    {  
         if(dimension == 2)
         {
             for (int i = 0; i < V; i++)
@@ -216,14 +216,10 @@ int main (int argc, char *argv[])
             }          
         }
 
-        for (int a = 0; a < trials; a++)
-        {      
-            sum += prim_algo();
-            // printf("%lf\n", sum);
-        }
-        printf("%lf %d %d %d\n", sum/trials, V,trials, dimension);
+        sum += prim_algo();
+        // printf("%lf\n", sum);
+   
     }
-
     for (int i = 0; i < V; i++)
     {
         free(graph[i]);
@@ -232,8 +228,8 @@ int main (int argc, char *argv[])
     free(oldx);
     free(oldy);
     free(oldz);
-    free(olda);
-    
+    free(olda);  
+    printf("%lf %d %d %d\n", sum/trials, V,trials, dimension);
 
     return 0;
 } 
