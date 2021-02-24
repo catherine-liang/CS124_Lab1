@@ -13,8 +13,8 @@ double *oldy;
 double *oldz;
 double *olda;
 
-int Nvals[12] = {128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144};
-int Dims[4] = {0,2,3,4};
+// int Nvals[12] = {128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144};
+// int Dims[4] = {0,2,3,4};
 
 double prim_algo()
 {
@@ -221,7 +221,7 @@ int main (int argc, char *argv[])
             sum += prim_algo();
             // printf("%lf\n", sum);
         }
-        printf("Vertices = %d: %lf\n", V, sum/trials);
+        printf("%lf %d %d %d\n", sum/trials, V,trials, dimension);
     }
 
     for (int i = 0; i < V; i++)
