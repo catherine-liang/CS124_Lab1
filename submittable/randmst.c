@@ -13,9 +13,6 @@ double *oldy;
 double *oldz;
 double *olda;
 
-// int Nvals[12] = {128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144};
-// int Dims[4] = {0,2,3,4};
-
 double prim_algo()
 {
     int prev[V];    
@@ -61,9 +58,7 @@ double prim_algo()
     {
         sump += graph[i][prev[i]];
     }
-
     return sump;
-    //printf("%lf\n", sump);
 }
 
 double prim_algo_dim_0()
@@ -112,7 +107,6 @@ double prim_algo_dim_0()
     return sum;
 }
 
-
 int main (int argc, char *argv[])
 {
     int dimension = 0;
@@ -120,8 +114,6 @@ int main (int argc, char *argv[])
     int vertices = atoi(argv[2]);
 	int trials = atoi(argv[3]);
 	dimension = atoi(argv[4]);
-    // printf("%d\n",V);
-    //printf("Dimension = %d\n", dimension);
 
     if ( dimension < 0 || dimension > 4) {
         printf("Error: dimension should be 0, 2, 3, or 4.\n");
@@ -151,8 +143,6 @@ int main (int argc, char *argv[])
     oldy = malloc (sizeof(double) * V);    
     olda = malloc (sizeof(double) * V);    
 
-
-
     int size = 0;
     double sum = 0;
     srand(time(NULL));
@@ -163,7 +153,6 @@ int main (int argc, char *argv[])
         {          
             sum += prim_algo_dim_0();
         }
-        //printf("Vertices %d: %lf\n", V, sum/10);
     }
     else
     {
@@ -219,15 +208,8 @@ int main (int argc, char *argv[])
                     }
                 }          
             }
-
             sum += prim_algo();
-            // printf("%lf\n", sum);
-            //
-  
         }
-        //printf("Vertices = %d: %lf\n", V, sum/trials);
-
-   
     }
     for (int i = 0; i < V; i++)
     {
@@ -239,6 +221,5 @@ int main (int argc, char *argv[])
     free(oldz);
     free(olda);  
     printf("%lf %d %d %d\n", sum/trials, V,trials, dimension);
-
     return 0;
 } 
