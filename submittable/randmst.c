@@ -66,7 +66,7 @@ double prim_algo_dim_0()
     int prev[V];    
     double dist[V];     
     bool MST[V];  
-   for (int i = 0; i < V; i++)
+    for (int i = 0; i < V; i++)
     {
         dist[i] = 999.999;
         MST[i] = false;
@@ -158,8 +158,8 @@ int main (int argc, char *argv[])
     {
         for (int a = 0; a < trials; a++)
         {      
-           size = 0;
-           srand(time(NULL));
+            size = 0;
+            srand(time(NULL));
             if(dimension == 2)
             {
                 for (int i = 0; i < V; i++)
